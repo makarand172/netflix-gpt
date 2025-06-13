@@ -8,7 +8,7 @@ export const validateFormData = (name, email, password) => {
     if (!isNameValid) return "Name is not valid.";
   }
 
-  let isEmailValid = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+  let isEmailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
   if (!isEmailValid) return "Email is not valid.";
 
   const isPassValid =
