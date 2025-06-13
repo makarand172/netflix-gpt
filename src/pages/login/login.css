@@ -1,0 +1,119 @@
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  filter: brightness(50%);
+}
+
+.login-form-container {
+  place-self: center;
+  background-color: rgba(0, 0, 0, 0.707);
+  width: 310px;
+  height: 500px;
+  padding: 30px 63px;
+  border-radius: 8px;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 30px;
+}
+
+.email-box {
+  position: relative;
+  margin-bottom: 17px;
+}
+
+.pass-box {
+  position: relative;
+}
+.name-box {
+  position: relative;
+  margin-bottom: 17px;
+}
+
+.text-input {
+  width: 93.5%;
+  height: 33px;
+  border: 1px solid gray;
+  background: none;
+  border-radius: 5px;
+  color: white;
+  padding-left: 1rem;
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+.text-label {
+  position: absolute;
+  color: white;
+  top: 22px;
+  left: 1rem;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.text-input:focus ~ .text-label,
+.text-input:not(:placeholder-shown):not(:focus) ~ .text-label {
+  top: 11px;
+  font-size: 12px;
+  border-color: gray;
+}
+.text-input:not(:placeholder-shown) {
+  background-color: #3445667c; /* Slightly lighter than focus state */
+}
+
+.signin-btn {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #e30914;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.or-sec {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  color: #b4b4b4;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.signin-code-btn {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #333434;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  border: none;
+}
+
+p {
+  color: rgb(185, 178, 178);
+}
+
+.signup-btn {
+  margin-top: 10px;
+  border: none;
+  background: none;
+  color: white;
+  padding: 0;
+  font-size: 17px;
+}
+
+.signup-btn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
