@@ -66,6 +66,14 @@ h1 {
   background-color: #3445667c; /* Slightly lighter than focus state */
 }
 
+.error-message {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: -5px;
+}
+
 .signin-btn {
   margin-top: 20px;
   width: 100%;

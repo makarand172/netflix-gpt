@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../../layout/header/Header";
 import "./login.css";
+import { validateFormData } from "../../utils/validate";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(false);
@@ -9,6 +10,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -21,7 +23,19 @@ const Login = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(formValues);
+    let isFormValid = null;
+    setErrorMessage(isFormValid);
+    if (isSignIn) {
+      isFormValid = validateFormData(formValues.email, formValues.password);
+    } else {
+      isFormValid = validateFormData(
+        formValues.name,
+        formValues.email,
+        formValues.password
+      );
+    }
+    if (isFormValid !== null) return setErrorMessage(isFormValid);
+    console.log("submit");
   };
 
   return (
@@ -90,6 +104,8 @@ const Login = () => {
             Password
           </label>
         </div>
+
+        <p className="error-message">{errorMessage}</p>
 
         <button type="submit" className="signin-btn">
           {isSignIn ? "Sign In" : "Sign Up"}
