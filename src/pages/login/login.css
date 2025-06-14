@@ -56,6 +56,19 @@ h1 {
   transition: all 0.3s ease;
 }
 
+.eye-icon {
+  position: absolute;
+  top: 14px;
+  right: 1rem;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+
+.eye-icon:hover {
+  font-size: larger;
+  transition: all 0.1s ease-in;
+}
+
 .text-input:focus ~ .text-label,
 .text-input:not(:placeholder-shown):not(:focus) ~ .text-label {
   top: 11px;
@@ -63,7 +76,18 @@ h1 {
   border-color: gray;
 }
 .text-input:not(:placeholder-shown) {
-  background-color: #3445667c; /* Slightly lighter than focus state */
+  background-color: #3445667c !important; /* Slightly lighter than focus state */
+}
+
+/* Override autofill styles */
+.text-input:-webkit-autofill,
+.text-input:-webkit-autofill:hover,
+.text-input:-webkit-autofill:focus,
+.text-input:-webkit-autofill:active {
+  box-shadow: 0 0 0 1000px #3445667c inset !important; /* Fallback for non-WebKit */
+  -webkit-text-fill-color: #e6dddd !important; /* Ensure text color is visible */
+  background-color: #3445667c !important; /* Explicit background color */
+  background-clip: text !important; /* Standard property */
 }
 
 .error-message {
@@ -124,4 +148,49 @@ p {
 .signup-btn:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.login-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-overlay {
+  position: absolute;
+  background-color: #11111125;
+  height: 100%;
+  width: 310px;
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  place-self: center;
+  border: 8px solid #f3f3f3;
+  border-radius: 40%;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
