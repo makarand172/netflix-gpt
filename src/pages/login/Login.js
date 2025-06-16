@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Header from "../../layout/header/Header";
 import "./login.css";
 import { validateFormData } from "../../utils/validate";
 import { auth } from "../../utils/firebase";
@@ -37,7 +36,7 @@ const Login = () => {
     if (error) return setErrorMessage(error);
 
     if (!isSignIn) {
-      // signin logic
+      // signup logic
       setShowSpinner(true);
       createUserWithEmailAndPassword(
         auth,
@@ -45,8 +44,6 @@ const Login = () => {
         formValues.password
       )
         .then((userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
           setErrorMessage("User has been registered successfully!");
           setTimeout(() => {
             setIsSignIn(true);
@@ -59,7 +56,7 @@ const Login = () => {
           setShowSpinner(false);
         });
     } else {
-      // singup logic
+      // singin logic
       setShowSpinner(true);
       signInWithEmailAndPassword(auth, formValues.email, formValues.password)
         .then((userCredential) => {
@@ -94,7 +91,7 @@ const Login = () => {
         src="https://assets.nflxext.com/ffe/siteui/vlv3/7968847f-3da9-44b3-8bbb-13a46579881f/web/IN-en-20250609-TRIFECTA-perspective_32b70b51-20d4-46db-8a1a-3d5428be5f0e_large.jpg"
         alt="logo"
       />
-      <Header />
+
       <div className="login-wrapper">
         <form
           onSubmit={(e) => {
@@ -103,24 +100,24 @@ const Login = () => {
           className="login-form-container"
         >
           <h1>{isSignIn ? "Sign In" : "Sign Up"}</h1>
-          {/* {!isSignIn && (
-          <div className="name-box">
-            <input
-              className="text-input"
-              id="name"
-              name="name"
-              type="text"
-              placeholder=""
-              value={formValues.name}
-              onChange={(e) => {
-                handleChange(e);
-              }}
-            />
-            <label className="text-label" htmlFor="name">
-              Full Name
-            </label>
-          </div>
-        )} */}
+          {!isSignIn && (
+            <div className="name-box">
+              <input
+                className="text-input"
+                id="name"
+                name="name"
+                type="text"
+                placeholder=""
+                value={formValues.name}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
+              />
+              <label className="text-label" htmlFor="name">
+                Full Name
+              </label>
+            </div>
+          )}
           <div className="email-box">
             <input
               className="text-input"

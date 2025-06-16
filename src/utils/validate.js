@@ -1,12 +1,13 @@
-export const validateFormData = (email, password) => {
-  //   if (name !== undefined || name !== "") {
-  //     let isNameValid =
-  //       /(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})/.test(
-  //         name
-  //       );
+export const validateFormData = (email, password, name = "") => {
+  console.log(name.length);
+  if (name.length) {
+    let isNameValid =
+      /(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})/.test(
+        name
+      );
 
-  //     if (!isNameValid) return "Name is not valid.";
-  //   }
+    if (!isNameValid) return "Name is not valid.";
+  }
 
   let isEmailValid = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
   if (!isEmailValid) return "Email is not valid.";
