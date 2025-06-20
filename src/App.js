@@ -13,7 +13,7 @@ function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // signedIn
         const { uid, email, displayName, photoURL, providerData } = user;
@@ -39,6 +39,8 @@ function App() {
         navigate("/");
       }
     });
+    // unsubscribe when component unmounts
+    return () => unsubscribe();
   }, []);
   return (
     <div className="App">

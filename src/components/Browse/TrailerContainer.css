@@ -1,0 +1,46 @@
+.trailer-container {
+  color: black;
+}
+
+.movie-overview-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 98%;
+  padding-left: 45px;
+  color: white;
+  overflow-x: hidden;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 8, 8, 0.54) 0%,
+    rgba(74, 73, 73, 0) 100%,
+    rgba(255, 255, 255, 0) 40%
+  );
+}
+.moview-overview-content {
+  position: relative;
+  top: 280px;
+}
+
+.moview-overview {
+  width: 270px;
+}
+
+.play-button {
+  padding: 6px 25px;
+  border-radius: 3px;
+  border: none;
+  font-size: 14px;
+  margin-right: 10px;
+  width: 100px;
+}
+
+.info-button {
+  color: white;
+  background-color: rgba(128, 128, 128, 0.396);
+  padding: 7px 25px;
+  border-radius: 3px;
+  border: none;
+  font-size: 14px;
+  width: 120px;
+}

@@ -1,21 +1,26 @@
 .header-container {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-content {
   height: 30%;
   display: flex;
   justify-content: space-between;
   padding-right: 10px;
+  align-items: center;
 }
 
-.header-container > img {
+.header-content > img {
   height: 80px;
 }
 
-.header-right-section {
+.header-nav-section {
+  color: white;
   display: flex;
   gap: 10px;
   align-items: center;
-}
-.header-right-section > label {
-  color: white;
 }
 
 .user-logo {
