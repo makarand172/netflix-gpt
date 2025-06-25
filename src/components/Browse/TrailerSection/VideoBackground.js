@@ -1,5 +1,5 @@
 import "./VideoBackground.css";
-import useGetTrailer from "../../hooks/useGetTrailer";
+import useGetTrailer from "../../../hooks/useGetTrailer";
 
 const VideoBackground = ({ movieId }) => {
   const trailerKey = useGetTrailer(movieId);

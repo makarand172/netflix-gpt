@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
-import MovieCorouselContainer from "../../components/Browse/MovieCorouselContainer";
-import TrailerContainer from "../../components/Browse/TrailerContainer";
-import useNowPlayingMovies from "../../hooks/useNowPlayingMovies";
+import TrailerContainer from "../../components/Browse/TrailerSection/TrailerContainer";
+import useGetMovies from "../../hooks/useGetMovies";
 import "./browse.css";
 import { useEffect, useState } from "react";
+import MovieCorouselContainer from "../../components/Browse/MovieListSection/MovieCorouselContainer";
+import GptSearch from "../gptSearch/GptSearch";
 
 const Browse = () => {
   const [randomIndex, setRandomIndex] = useState(0);
-  useNowPlayingMovies();
+  useGetMovies();
   const movies = useSelector((store) => store.movies.nowPlayingMovies);
+  const gptToggle = useSelector((store) => store.gpt.gptToggle);
   useEffect(() => {
     if (!movies || !movies.length) return;
 
@@ -17,7 +19,7 @@ const Browse = () => {
       setRandomIndex(index);
     };
 
-    let interval = setInterval(updateRandomIndex, 80000);
+    let interval = setInterval(updateRandomIndex, 60000);
 
     return () => {
       clearInterval(interval);
@@ -25,8 +27,14 @@ const Browse = () => {
   }, [movies]);
   return (
     <div className="browse-container">
-      <TrailerContainer movie={movies?.[randomIndex]} />
-      {/* <MovieCorouselContainer /> */}
+      {gptToggle ? (
+        <GptSearch />
+      ) : (
+        <>
+          <TrailerContainer movie={movies?.[randomIndex]} />
+          <MovieCorouselContainer />
+        </>
+      )}
     </div>
   );
 };

@@ -1,11 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./header.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { ApplicationConstants } from "../../utils/appConstants";
+import { toggleGpt } from "../../store/slices/gptSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const user = useSelector((store) => store.auth.userCredentials);
+  const gptToggle = useSelector((store) => store.gpt.gptToggle);
+  const dispatch = useDispatch();
+  const gptToggleHandler = () => {
+    dispatch(toggleGpt());
+  };
+
   const signOutHandler = () => {
     signOut(auth);
   };
@@ -26,6 +34,9 @@ const Header = () => {
         <img src={ApplicationConstants.LOGO_URL} alt="logo" />
         {user && (
           <nav className="header-nav-section">
+            <button className="gpt-search-button" onClick={gptToggleHandler}>
+              {gptToggle ? "Home Page" : "GPT Search"}
+            </button>
             <img
               className="user-logo"
               src={ApplicationConstants.USER_AVATAR}

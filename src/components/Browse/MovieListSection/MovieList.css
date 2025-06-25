@@ -1,0 +1,19 @@
+.movie-list-container h3 {
+  color: white;
+}
+
+.movie-list-card-section {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.movie-card-wrapper {
+  width: 150px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 6px;
+  flex-shrink: 0;
+  transition: 0.3s ease;
+}

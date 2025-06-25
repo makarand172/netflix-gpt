@@ -6,6 +6,7 @@ import Error from "./components/Error/Error";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore";
+import GptSearch from "./pages/gptSearch/GptSearch";
 const Login = lazy(() => import("./pages/login/Login"));
 const Browse = lazy(() => import("./pages/browse/Browse"));
 
@@ -29,6 +30,14 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <Browse />
+          </Suspense>
+        ),
+      },
+      {
+        path: "GptSearch",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <GptSearch />
           </Suspense>
         ),
       },

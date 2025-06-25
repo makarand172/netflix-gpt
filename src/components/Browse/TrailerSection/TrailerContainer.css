@@ -5,9 +5,8 @@
 .movie-overview-container {
   position: absolute;
   top: 0;
-  height: 100%;
-  width: 98%;
-  padding-left: 45px;
+  height: 70vh;
+  width: 100%;
   color: white;
   overflow-x: hidden;
   background: linear-gradient(
@@ -19,11 +18,22 @@
 }
 .moview-overview-content {
   position: relative;
-  top: 280px;
+  top: 370px;
+  padding-left: 45px;
+}
+
+.overview-section {
+  margin-bottom: 20px;
 }
 
 .moview-overview {
-  width: 270px;
+  max-width: 270px;
+}
+
+.view-more-toggle {
+  color: #c50e14;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .play-button {

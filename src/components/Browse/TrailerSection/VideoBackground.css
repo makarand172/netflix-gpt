@@ -1,6 +1,7 @@
 .trailer-video {
-  height: 90vh;
+  height: 70vh;
   width: 100%;
+  border: none;
 }
 
 .trailer-img {

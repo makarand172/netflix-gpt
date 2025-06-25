@@ -7,6 +7,13 @@ export const ApplicationConstants = {
     "https://assets.nflxext.com/ffe/siteui/vlv3/7968847f-3da9-44b3-8bbb-13a46579881f/web/IN-en-20250609-TRIFECTA-perspective_32b70b51-20d4-46db-8a1a-3d5428be5f0e_large.jpg",
   NOW_PLAYING_MOVIES_API_URL:
     "https://api.themoviedb.org/3/movie/now_playing?page=1",
+  POPULAR_MOVIES_API_URL: "https://api.themoviedb.org/3/movie/popular?page=1",
+  TOP_RATED_MOVIES_API_URL:
+    "https://api.themoviedb.org/3/movie/top_rated?page=1",
+  UPCOMING_MOVIES_API_URL: "https://api.themoviedb.org/3/movie/upcoming?page=1",
+  GET_MOVIES_ON_QUERY: "https://api.themoviedb.org/3/search/movie?query=",
+
+  POSTER_IMAGE_URL: "https://image.tmdb.org/t/p/w200",
 };
 
 export const tmdbApiOptions = {
@@ -17,3 +24,6 @@ export const tmdbApiOptions = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNmJjZjM3Y2FkMWY0MDAwNWUwMjkxOThhMjdmOTI2NyIsIm5iZiI6MTc1MDI0NzMyOS45MTM5OTk4LCJzdWIiOiI2ODUyYTdhMWQxZWE0M2UzOGJmYjUxNGMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.9Hll9ZjeO1V0R8tI9cZLuCuboo9rrtMOEYrIbhGHM_o",
   },
 };
+
+export const openai_key =
+  "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";

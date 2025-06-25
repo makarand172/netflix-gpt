@@ -23,6 +23,17 @@
   align-items: center;
 }
 
+.gpt-search-button {
+  height: 28px;
+  font-weight: bold;
+  background: rgb(166 29 29);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
 .user-logo {
   height: 25px;
 }

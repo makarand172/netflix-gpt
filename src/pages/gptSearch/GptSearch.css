@@ -1,0 +1,67 @@
+.gpt-search-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gpt-search-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/7968847f-3da9-44b3-8bbb-13a46579881f/web/IN-en-20250609-TRIFECTA-perspective_32b70b51-20d4-46db-8a1a-3d5428be5f0e_large.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(30%);
+  z-index: 0;
+}
+
+.gpt-form-container {
+  z-index: 1000;
+  position: relative;
+  top: 160px;
+  background-color: rgba(0, 0, 0, 0.707);
+  height: 60px;
+  width: 60%;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+h1 {
+  color: white;
+}
+
+.gpt-form-container input {
+  width: 80%;
+  border-radius: 8px;
+  font-size: 18px;
+  padding-left: 12px;
+  font-weight: 400;
+}
+.gpt-form-container button {
+  width: 19%;
+  background-color: #a61d1d;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.movie-list {
+  width: 90%;
+  z-index: 10;
+  position: relative;
+  top: 160px;
+  height: 450px;
+  margin-top: 50px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
