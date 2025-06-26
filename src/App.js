@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./layout/header/Header";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase";
@@ -41,6 +41,7 @@ function App() {
     });
     // unsubscribe when component unmounts
     return () => unsubscribe();
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="App">

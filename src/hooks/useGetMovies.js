@@ -47,6 +47,7 @@ const useGetMovies = () => {
     getPopularMovies();
     getTopRatedMovies();
     getUpcomingMovies();
+    // eslint-disable-next-line
   }, []);
 };
 

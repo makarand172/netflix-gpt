@@ -9,13 +9,13 @@ const MovieList = (props) => {
       <h3>{header ?? ""}</h3>
       <div className="movie-list-card-section">
         {list?.map((moviewDetails) => (
-          <>
+          <div key={moviewDetails.id}>
             {moviewDetails.poster_path && (
               <div className="movie-card-wrapper" key={moviewDetails.id}>
                 <MovieCard details={moviewDetails} />
               </div>
             )}
-          </>
+          </div>
         ))}
       </div>
     </div>
