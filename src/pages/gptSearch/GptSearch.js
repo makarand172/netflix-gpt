@@ -74,7 +74,11 @@ const GptSearch = () => {
           {movieNames &&
             moviesList &&
             movieNames.map((movie, index) => (
-              <MovieList key={movie} header={movie} list={moviesList[index]} />
+              <MovieList
+                key={movie}
+                header={movie.toUpperCase()}
+                list={moviesList[index]}
+              />
             ))}
         </div>
       )}
