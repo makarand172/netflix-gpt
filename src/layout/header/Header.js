@@ -3,8 +3,7 @@ import "./header.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { ApplicationConstants } from "../../utils/appConstants";
-import { toggleGpt } from "../../store/slices/gptSlice";
-import { useNavigate } from "react-router-dom";
+import { addGptSuggestedMovies, toggleGpt } from "../../store/slices/gptSlice";
 
 const Header = () => {
   const user = useSelector((store) => store.auth.userCredentials);
@@ -12,6 +11,12 @@ const Header = () => {
   const dispatch = useDispatch();
   const gptToggleHandler = () => {
     dispatch(toggleGpt());
+    dispatch(
+      addGptSuggestedMovies({
+        movieNames: null,
+        moviesList: null,
+      })
+    );
   };
 
   const signOutHandler = () => {

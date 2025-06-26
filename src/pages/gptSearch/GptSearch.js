@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./GptSearch.css";
 import { useDispatch, useSelector } from "react-redux";
 import { ApplicationConstants, tmdbApiOptions } from "../../utils/appConstants";
@@ -9,8 +9,10 @@ const GptSearch = () => {
   const inputRef = useRef(null);
   const dispatch = useDispatch();
   const { movieNames, moviesList } = useSelector((store) => store.gpt);
+  const [loading, setLoading] = useState(false);
 
   const getOpenAiSearchResults = async (searchInput) => {
+    setLoading(true);
     const response = await window.puter.ai.chat(
       `Act as a movie recommendation system and suggest some movies for the query ${searchInput}. only give me the names of 5 movies, comma separated like the example result given ahead. Example Result: MovieName1, movieName2, movieName3, moviename4.....`,
       {
@@ -28,6 +30,7 @@ const GptSearch = () => {
         })
       );
     }
+    setLoading(false);
   };
 
   const getTmdbMovies = async (movie) => {
@@ -64,13 +67,17 @@ const GptSearch = () => {
           Search
         </button>
       </form>
-      <div className="movie-list">
-        {movieNames &&
-          moviesList &&
-          movieNames.map((movie, index) => (
-            <MovieList key={movie} header={movie} list={moviesList[index]} />
-          ))}
-      </div>
+      {loading ? (
+        <span className="loader" />
+      ) : (
+        <div className="movie-list">
+          {movieNames &&
+            moviesList &&
+            movieNames.map((movie, index) => (
+              <MovieList key={movie} header={movie} list={moviesList[index]} />
+            ))}
+        </div>
+      )}
     </div>
   );
 };
